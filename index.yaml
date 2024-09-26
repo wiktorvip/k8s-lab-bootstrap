@@ -1,0 +1,18 @@
+apiVersion: v1
+entries:
+  metallb-umbrella:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-09-26T19:53:54.05201766Z"
+    dependencies:
+    - name: metallb
+      repository: https://metallb.github.io/metallb
+      version: 0.14.8
+    description: A Helm chart for Kubernetes
+    digest: 5b1af4454ec5acde6e04e1bf4ad306b6399509ad8276260821fa892c4a921b60
+    name: metallb-umbrella
+    type: application
+    urls:
+    - https://github.com/wiktorvip/k8s-lab-bootstrap/releases/download/metallb-umbrella-0.1.0/metallb-umbrella-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-09-26T19:53:54.052029843Z"
