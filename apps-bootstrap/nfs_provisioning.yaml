@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-subdir-external-provisioner
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+    chart: nfs-subdir-external-provisioner
+    targetRevision: '4.0.18'
+    helm:
+      releaseName: nfs-subdir-external-provisioner
+      values: |
+        nfs:
+          server: 172.16.200.30
+          path: /mnt/k8s_sc
+        storageClass:
+          defaultClass: true
+          name:: nfs-storage
+  destination:
+    namespace: nfs-storage
+    name: in-cluster
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

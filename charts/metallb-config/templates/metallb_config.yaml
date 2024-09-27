@@ -2,18 +2,18 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: metallb-default
+  name: {{ .Values.metallb-config.name }}
   namespace: metallb-system
 spec:
   addresses:
-  - 172.16.200.240-172.16.200.250
+  - {{ .Values.metallb-config.ip-addresses }}
   autoAssign: true
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
-  name: metallb-default
+  name: {{ .Values.metallb-config.name }}
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - metallb-default
+  - {{ .Values.metallb-config.name }}
