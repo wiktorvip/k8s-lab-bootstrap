@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   metallb-config:
   - apiVersion: v2
+    appVersion: 0.2.0
+    created: "2024-09-27T12:55:41.999307577Z"
+    description: MetalLB Config
+    digest: 28f61472769d30c8de2c853831d947526ec0537764f3f7f167f637b338abd7c8
+    name: metallb-config
+    type: application
+    urls:
+    - https://github.com/wiktorvip/k8s-lab-bootstrap/releases/download/metallb-config-0.2.0/metallb-config-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2024-09-27T12:47:36.231714422Z"
     description: MetalLB Config
@@ -40,4 +50,4 @@ entries:
     urls:
     - https://github.com/wiktorvip/k8s-lab-bootstrap/releases/download/metallb-umbrella-0.1.0/metallb-umbrella-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-27T12:47:36.231725213Z"
+generated: "2024-09-27T12:55:41.999316764Z"
