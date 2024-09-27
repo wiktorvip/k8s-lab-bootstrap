@@ -1,4 +1,4 @@
-metallb-config:
+metallbConfig:
   name: metallb-default
-  ip-addresses: 172.16.200.240-172.16.200.250
+  ipAddresses: 172.16.200.240-172.16.200.250
   

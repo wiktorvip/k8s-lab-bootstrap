@@ -2,18 +2,18 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: {{ .Values.metallb-config.name }}
+  name: {{ .Values.metallbConfig.name }}
   namespace: metallb-system
 spec:
   addresses:
-  - {{ .Values.metallb-config.ip-addresses }}
+  - {{ .Values.metallbConfig.ipAddresses }}
   autoAssign: true
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
-  name: {{ .Values.metallb-config.name }}
+  name: {{ .Values.metallbConfig.name }}
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - {{ .Values.metallb-config.name }}
+  - {{ .Values.metallbConfig.name }}
