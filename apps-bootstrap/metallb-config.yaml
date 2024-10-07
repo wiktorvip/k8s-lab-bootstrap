@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb-config
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://wiktorvip.github.io/k8s-lab-bootstrap
+    chart: metallb-config
+    targetRevision: '0.2.0'    # helm search repo XXX --versions
+    helm:
+      releaseName: metallb-config
+      values: |
+        metallbConfig:
+          name: metallb-default
+          ipAddresses: 172.16.200.240-172.16.200.250
+  destination:
+    namespace: metallb-system
+    name: in-cluster
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
