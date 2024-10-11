@@ -9,9 +9,8 @@ spec:
   project: infra
   source:
     repoURL: https://kedacore.github.io/charts
-    chart: kedacore
+    chart: keda
     targetRevision: '2.15.1'
-
   destination:
     namespace: keda
     name: in-cluster
