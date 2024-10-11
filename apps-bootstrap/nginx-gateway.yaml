@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: infra
   source:
     chart: nginx-gateway
     repoURL: ghcr.io/nginxinc/charts/nginx-gateway-fabric

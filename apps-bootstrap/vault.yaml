@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: infra
   source:
     chart: vault
     repoURL: https://helm.releases.hashicorp.com
@@ -23,6 +23,17 @@ spec:
           replicas: 2
         dataStorage:
           size: 2Gi
+  ignoreDifferences:
+    - group: "admissionregistration.k8s.io"
+      kind: CustomResourceDefinition
+      name: bgppeers.metallb.io
+      jsonPointers:
+        - /spec/conversion/webhook/clientConfig/caBundle
+    - group: "admissionregistration.k8s.io"
+      kind: CustomResourceDefinition
+      name: addresspools.metallb.io
+      jsonPointers:
+        - /spec/conversion/webhook/clientConfig/caBundle
   destination:
     name: in-cluster
     namespace: vault

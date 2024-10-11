@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack
+  name: kube-prometheus-stack-2
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 62.6.0
+    targetRevision: 65.1.0
     helm:
       releaseName: kube-prometheus-stack
       values: |
@@ -28,7 +28,7 @@ spec:
            enabled: false
          prometheus:
           monitor:
-            enabled: true
+           enabled: true
            prometheusSpec:
              storageSpec:
                volumeClaimTemplate:
@@ -43,7 +43,7 @@ spec:
            enabled: true
   destination:
     name: in-cluster
-    namespace: monitoring
+    namespace: monitoring-system
   syncPolicy:
     automated:
       prune: true

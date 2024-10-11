@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: infra
   source:
     repoURL: https://grafana.github.io/helm-charts
     chart: loki-stack
@@ -24,7 +24,7 @@ spec:
            type: NodePort
            nodePort: 30998
   destination:
-    namespace: loki-system
+    namespace: monitoring
     name: in-cluster
   syncPolicy:
     automated: {}
