@@ -18,8 +18,9 @@ spec:
           server: 172.16.200.30
           path: /mnt/k8s_sc
         storageClass:
+          create: true
           defaultClass: true
-          name:: nfs-storage
+          name: nfs-storage
   destination:
     namespace: nfs-storage
     name: in-cluster
