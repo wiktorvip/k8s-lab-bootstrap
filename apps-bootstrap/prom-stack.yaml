@@ -28,7 +28,7 @@ spec:
            enabled: false
          prometheus:
           monitor:
-           enabled: true
+            enabled: true
            prometheusSpec:
              storageSpec:
                volumeClaimTemplate:
