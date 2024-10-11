@@ -11,8 +11,8 @@ spec:
     repoURL: 'https://github.com/wiktorvip/k8s-lab-bootstrap'
     targetRevision: HEAD
   project: infra
-   syncPolicy:
-     automated:
-       prune: true
-       selfHeal: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
   
