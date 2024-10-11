@@ -24,7 +24,7 @@ spec:
            type: NodePort
            nodePort: 30998
   destination:
-    namespace: monitoring-system
+    namespace: loki-system
     name: in-cluster
   syncPolicy:
     automated: {}

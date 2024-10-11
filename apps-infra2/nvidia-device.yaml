@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-device-daemonset
+spec:
+  project: default
+  sources:
+  - repoURL: 'https://nvidia.github.io/k8s-device-plugin'
+    chart: nvidia-device-plugin
+    targetRevision: 0.15.0
+    helm:
+      valueFiles:
+      - $values/app-bootstrap/values/values.yaml
+  - repoURL: 'https://github.com/wiktorvip/labs-argocd-app-of-app.git'
+    targetRevision: main
+    ref: values
+  destination:
+    name: in-cluster
+    namespace: gpu-operator
