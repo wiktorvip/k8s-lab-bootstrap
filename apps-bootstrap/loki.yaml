@@ -24,7 +24,7 @@ spec:
            type: NodePort
            nodePort: 30998
   destination:
-    namespace: monitoring
+    namespace: monitoring-system
     name: in-cluster
   syncPolicy:
     automated: {}
