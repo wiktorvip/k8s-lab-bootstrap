@@ -19,7 +19,7 @@ spec:
         promtail:
           enabled: true
         grafana:
-          enabled: true
+          enabled: false
           service:
            type: NodePort
            nodePort: 30998

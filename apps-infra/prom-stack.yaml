@@ -10,18 +10,24 @@ spec:
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 65.1.0
+    targetRevision: 65.1.1
     helm:
       releaseName: kube-prometheus-stack
       values: |
          alertmanager:
            enabled: true
+           service:
+             type: NodePort
+             nodePort: 30903           
          defaultRules:
            create: true
            rules:
              etcd: false
          grafana:
            enabled: true
+           service:
+             type: NodePort
+             nodePort: 30998
            adminUser: admin
            adminPassword: admin123
            additionalDataSources:
@@ -38,6 +44,9 @@ spec:
            enabled: false
          prometheus:
            enabled: true
+           service:
+             type: NodePort
+             nodePort: 30090
            prometheusSpec:
              storageSpec:
                volumeClaimTemplate:
