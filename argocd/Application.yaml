@@ -10,9 +10,9 @@ spec:
     path: apps-bootstrap
     repoURL: 'https://github.com/wiktorvip/k8s-lab-bootstrap'
     targetRevision: HEAD
-  project: default
-  # syncPolicy:
-  #   automated:
-  #     prune: true
-  #     selfHeal: true
+  project: infra
+   syncPolicy:
+     automated:
+       prune: true
+       selfHeal: true
   

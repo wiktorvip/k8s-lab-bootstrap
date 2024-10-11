@@ -20,6 +20,9 @@ spec:
           enabled: true
         grafana:
           enabled: true
+          service:
+           type: NodePort
+           nodePort: 30998
   destination:
     namespace: loki-system
     name: in-cluster
