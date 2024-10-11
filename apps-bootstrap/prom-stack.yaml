@@ -22,13 +22,22 @@ spec:
              etcd: false
          grafana:
            enabled: true
+           adminUser: admin
+           adminPassword: admin123
+           additionalDataSources:
+           - access: proxy
+             isDefault: false
+             name: loki
+             orgId: 1
+             type: loki
+             url: http://loki-stack.monitoring-system:3100
+             version: 1
          kubeEtcd:
            enabled: false
          kubeScheduler:
            enabled: false
          prometheus:
-          monitor:
-            enabled: true
+           enabled: true
            prometheusSpec:
              storageSpec:
                volumeClaimTemplate:
