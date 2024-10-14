@@ -33,7 +33,7 @@ spec:
           - mountPath: /target
             name: plugins
         credentials:
-          name: minio-credentials
+          name: cloud-credentials
           useSecret: true
           secretContents:
             cloud: |
