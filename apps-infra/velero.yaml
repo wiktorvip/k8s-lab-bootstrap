@@ -19,7 +19,7 @@ spec:
         configuration:
           backupStorageLocation:
           - name: minio  
-            bucket: minio
+            bucket: velero
             provider: aws
             default: true
             config:
