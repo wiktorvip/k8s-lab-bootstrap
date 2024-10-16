@@ -22,13 +22,13 @@ spec:
            config:
              global:
                resolve_timeout: 5m
-               slack_api_url: "https://hooks.slack.com/services/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"
+               slack_api_url: "https://hooks.slack.com/services/XXX"
              route:
                group_by: ['job']
                group_wait: 30s
                group_interval: 5m
                repeat_interval: 12h
-               receiver: 'slack'
+               #receiver: 'slack'
                routes:
                - match:
                    alertname: DeadMansSwitch
@@ -41,7 +41,7 @@ spec:
              - name: 'slack'
                slack_configs:
                - channel: '#prometheus-alers'
-                 send_resolved: true
+                 send_resolved: false
                  title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] Monitoring Event Notification'
                  text: >-
                    {{ range .Alerts }}
@@ -58,9 +58,6 @@ spec:
              etcd: false
          grafana:
            enabled: true
-           sidecar:
-             datasources:
-               defaultDatasourceEnabled: true
            service:
              type: NodePort
              nodePort: 30998
@@ -85,9 +82,6 @@ spec:
              nodePort: 30090
            prometheusSpec:
              storageSpec:
-               serviceMonitorSelectorNilUsesHelmValues: false
-               serviceMonitorSelector: {}
-               serviceMonitorNamespaceSelector: {}
                volumeClaimTemplate:
                  spec:
                    accessModes:
