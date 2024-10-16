@@ -85,9 +85,6 @@ spec:
              nodePort: 30090
            prometheusSpec:
              storageSpec:
-               serviceMonitorSelectorNilUsesHelmValues: false
-               serviceMonitorSelector: {}
-               serviceMonitorNamespaceSelector: {}
                volumeClaimTemplate:
                  spec:
                    accessModes:
