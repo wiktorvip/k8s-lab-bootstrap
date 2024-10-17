@@ -22,7 +22,7 @@ spec:
            config:
              global:
                resolve_timeout: 5m
-               slack_api_url: https://hooks.slack.com/services/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
+               slack_api_url: https://hooks.slack.com/services/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
              route:
                group_by: ['alertname']
                group_wait: 30s
