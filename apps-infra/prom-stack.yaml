@@ -22,16 +22,16 @@ spec:
            config:
              global:
                resolve_timeout: 5m
-               slack_api_url: "https://hooks.slack.com/services/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"
+               slack_api_url: https://hooks.slack.com/services/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
              route:
-               group_by: ['job']
+               group_by: ['alertname']
                group_wait: 30s
                group_interval: 5m
                repeat_interval: 12h
                receiver: 'slack'
                routes:
                - match:
-                   alertname: DeadMansSwitch
+                   alertname: Watchdog
                  receiver: 'null'
                - match:
                  receiver: 'slack'
@@ -40,7 +40,7 @@ spec:
              - name: 'null'
              - name: 'slack'
                slack_configs:
-               - channel: '#prometheus-alers'
+               - channel: '#alers'
                  send_resolved: false
                  title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] Monitoring Event Notification'
                  text: >-
