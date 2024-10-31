@@ -28,7 +28,7 @@ spec:
             nodePortHttps: 30889
   destination:
     name: in-cluster
-    namespace: sealed-secrets
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
