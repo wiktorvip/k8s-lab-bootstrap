@@ -81,6 +81,15 @@ spec:
              type: NodePort
              nodePort: 30090
            prometheusSpec:
+             serviceMonitorSelectorNilUsesHelmValues: false
+             serviceMonitorSelector: {}
+             serviceMonitorNamespaceSelector: {}
+             ruleSelector:
+               matchExpressions:
+                - key: prometheus
+                  operator: In
+                  values:
+                  - example-rules
              storageSpec:
                volumeClaimTemplate:
                  spec:

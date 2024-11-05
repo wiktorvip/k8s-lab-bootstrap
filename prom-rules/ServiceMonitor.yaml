@@ -1,7 +1,6 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  creationTimestamp: "2024-10-14T10:20:42Z"
   generation: 1
   labels:
     app: custom-alert-rules
@@ -9,11 +8,7 @@ metadata:
   namespace: monitoring-system
 spec:
   endpoints:
-  - enableHttp2: true
-    path: /metrics
-    port: http-web
-  - path: /metrics
-    port: reloader-web
+  - port: http
   namespaceSelector:
     matchNames:
     - monitoring-system
