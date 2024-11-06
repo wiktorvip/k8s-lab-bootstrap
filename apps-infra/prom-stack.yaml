@@ -40,7 +40,7 @@ spec:
              - name: 'null'
              - name: 'slack'
                slack_configs:
-               - channel: '#prometheus-alers'
+               - channel: '#alers'
                  send_resolved: false
                  title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] Monitoring Event Notification'
                  text: >-
@@ -84,12 +84,6 @@ spec:
              serviceMonitorSelectorNilUsesHelmValues: false
              serviceMonitorSelector: {}
              serviceMonitorNamespaceSelector: {}
-             ruleSelector:
-               matchExpressions:
-                - key: prometheus
-                  operator: In
-                  values:
-                  - example-rules
              storageSpec:
                volumeClaimTemplate:
                  spec:

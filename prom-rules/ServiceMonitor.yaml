@@ -4,6 +4,7 @@ metadata:
   generation: 1
   labels:
     app: custom-alert-rules
+    release: kube-prometheus-stack
   name: custom-alert-rules
   namespace: monitoring-system
 spec:
