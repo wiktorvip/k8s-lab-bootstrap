@@ -28,7 +28,7 @@ spec:
             nodePortHttps: 30889
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: argocd1
   syncPolicy:
     automated:
       prune: true
