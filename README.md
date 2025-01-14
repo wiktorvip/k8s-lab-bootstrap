@@ -1,9 +1,15 @@
 # k8s-lab-bootstrap
 
 ```
-k apply -f https://raw.githubusercontent.com/wiktorvip/k8s-lab-bootstrap/refs/heads/main/argocd/AppProject.yaml
 
-k apply -f https://raw.githubusercontent.com/wiktorvip/k8s-lab-bootstrap/refs/heads/main/argocd/App-infra.yaml
+Infra 1
+k apply -f https://raw.githubusercontent.com/wiktorvip/k8s-lab-bootstrap/refs/heads/main/argocd/AppProject1.yaml
+k apply -f https://raw.githubusercontent.com/wiktorvip/k8s-lab-bootstrap/refs/heads/main/argocd/App-infra1.yaml
+
+Infra 2
+k apply -f https://raw.githubusercontent.com/wiktorvip/k8s-lab-bootstrap/refs/heads/main/argocd/AppProject2.yaml
+k apply -f https://raw.githubusercontent.com/wiktorvip/k8s-lab-bootstrap/refs/heads/main/argocd/App-infra2.yaml
+
 
 ```
 

@@ -8,10 +8,10 @@ spec:
     name: in-cluster
     namespace: argocd
   source:
-    path: apps-infra
+    path: apps-infra1
     repoURL: 'https://github.com/wiktorvip/k8s-lab-bootstrap'
     targetRevision: HEAD
-  project: infra
+  project: infra1
   # syncPolicy:
   #   automated:
   #     prune: true
