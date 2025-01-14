@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: infra1
   source:
     repoURL: https://wiktorvip.github.io/k8s-lab-bootstrap
     chart: metallb-config

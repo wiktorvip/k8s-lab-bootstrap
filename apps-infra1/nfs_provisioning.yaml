@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: infra1
   source:
     repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
     chart: nfs-subdir-external-provisioner
