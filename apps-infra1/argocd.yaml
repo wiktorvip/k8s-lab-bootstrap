@@ -10,7 +10,7 @@ spec:
   source:
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 7.6.10
+    targetRevision: 7.6.12
     helm:
       releaseName: argo-cd
       values: |
@@ -28,7 +28,7 @@ spec:
             nodePortHttps: 30889
   destination:
     name: in-cluster
-    namespace: argocd1
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true

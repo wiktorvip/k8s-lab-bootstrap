@@ -4,7 +4,7 @@
 Get password of argocd admin user:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
-argocd login https://172.16.200.20:30888
+argocd login 172.16.200.20:30888
 argocd proj list
 argocd app list
 
