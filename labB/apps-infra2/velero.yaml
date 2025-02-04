@@ -1,0 +1,51 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: velero
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infra2
+  source:
+    chart: velero
+    repoURL: https://vmware-tanzu.github.io/helm-charts
+    targetRevision: 7.2.1
+    helm:
+      releaseName: velero
+      values: |
+        backupsEnabled: true
+        snapshotsEnabled: false
+        configuration:
+          backupStorageLocation:
+          - name: minio  
+            bucket: velero
+            provider: aws
+            default: true
+            config:
+              region: minio
+              s3ForcePathStyle: true
+              s3Url: http://10.0.0.100:9000
+        initContainers:
+        - name: velero-plugin-for-aws
+          image: velero/velero-plugin-for-aws:v1.10.1
+          volumeMounts:
+          - mountPath: /target
+            name: plugins
+        credentials:
+          name: minio-credentials
+          useSecret: true
+          secretContents:
+            cloud: |
+              [default]
+              aws_access_key_id = velero
+              aws_secret_access_key = velero1234
+  destination:
+    name: in-cluster
+    namespace: velero
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

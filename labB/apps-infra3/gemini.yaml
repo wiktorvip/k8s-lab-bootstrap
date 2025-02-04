@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gemini
+  namespace: gemini
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infra
+  source:
+    chart: argo-cd
+    repoURL: https://charts.fairwinds.com/stable
+    targetRevision: 2.1.3
+    helm:
+      releaseName: gemini
+      values: |
+        crds:
+          install: true
+  destination:
+    name: in-cluster
+    namespace: gemini
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

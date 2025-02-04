@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-infra2
+  name: apps-infra1
   namespace: argocd
 spec:
   destination:
     name: in-cluster
     namespace: argocd
   source:
-    path: apps-infra2
+    path: labA/apps-infra1
     repoURL: 'https://github.com/wiktorvip/k8s-lab-bootstrap'
     targetRevision: HEAD
-  project: infra2
-  # syncPolicy:
-  #   automated:
-  #     prune: true
-  #     selfHeal: true
+  project: infra1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
