@@ -16,7 +16,7 @@ k apply -f https://raw.githubusercontent.com/wiktorvip/labA/k8s-lab-bootstrap/re
 Infra 2
 k apply -f https://raw.githubusercontent.com/wiktorvip/labA/k8s-lab-bootstrap/refs/heads/main/argocd/AppProject2.yaml
 k apply -f https://raw.githubusercontent.com/wiktorvip/labA/k8s-lab-bootstrap/refs/heads/main/argocd/App-infra2.yaml
-
+```
 
 ### labB
 
