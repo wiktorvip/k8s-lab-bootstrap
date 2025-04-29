@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-config
+  namespace: argocd
+spec:
+  project: infra1
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: helm-app
+    repoURL: https://github.com/wiktorvip/k8s-helm
+    targetRevision: main
+  destination:
+    namespace: test
+    name: in-cluster
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

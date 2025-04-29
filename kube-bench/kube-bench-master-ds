@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: kube-bench-master-ds
+spec:
+  selector:
+    matchLabels:
+      name: kube-bench-master
+  template:
+    metadata:
+      labels:
+        name: kube-bench-master
+    spec:
+      nodeSelector: 
+        node-role.kubernetes.io/master: "" 
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      hostPID: true
+      containers:
+      - name: kube-bench-master
+        image: aquasec/kube-bench:latest
+        command: ["kube-bench","master"]
+        volumeMounts:
+        - name: var-lib-etcd
+          mountPath: /var/lib/etcd
+        - name: etc-kubernetes
+          mountPath: /etc/kubernetes
+          # /usr/bin is mounted to access kubectl / kubelet, for auto-detecting the Kubernetes version. 
+          # You can omit this mount if you specify --version as part of the command.
+        - name: usr-bin
+          mountPath: /usr/bin
+      volumes:
+      - name: var-lib-etcd
+        hostPath:
+          path: "/var/lib/etcd"
+      - name: etc-kubernetes
+        hostPath:
+          path: "/etc/kubernetes"
+      - name: usr-bin
+        hostPath:
+          path: "/usr/bin"
